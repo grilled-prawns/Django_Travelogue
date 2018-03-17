@@ -1,0 +1,43 @@
+{% extends 'blog_app/base.html' %}
+
+{% block bg %}
+        style="background-color: black"
+    {% endblock %}
+
+
+{% block content %}
+    <div class = "row">
+
+    <div class = 'col-xs-1' style="height: 280px; background-color: moccasin"></div>
+    <div class = 'col-xs-1' style="height: 380px; background-color: sandybrown"></div>
+    <div class = 'col-xs-1' style="height: 490px; background-color: aqua"></div>
+    <div class = 'col-xs-1' style="height: 600px; background-color: palegreen"></div>
+
+    <div class="col-xs-4" style="background-color: white ; height: 700px ; font-family: 'Open Sans Condensed' ; font-size: 20px">
+    <center>
+  <h2 style="font-size: 60px ; font-family: 'Calligraffitti'">Sign up</h2><br><br>
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+          <span style="margin-right: 30px">{{ field.label_tag }}</span>
+          <span style="margin-left: 30px">{{ field }}</span>
+
+      </p>
+        <br>
+    {% endfor %}
+
+    <input type="submit" class="btn btn-lg btn-primary" value="Submit Credentials">
+  </form>
+    </center>
+    </div>
+
+    <div class = 'col-xs-1' style="height: 600px; background-color: springgreen"></div>
+    <div class = 'col-xs-1' style="height: 490px; background-color: darkorange"></div>
+    <div class = 'col-xs-1' style="height: 380px; background-color: tan"></div>
+    <div class = 'col-xs-1' style="height: 280px; background-color: teal"></div>
+
+
+
+    </div>
+{% endblock %}

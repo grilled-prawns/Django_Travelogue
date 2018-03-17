@@ -1,0 +1,32 @@
+{% extends 'blog_app/base.html' %}
+
+{% block bg %}
+        style="background-color : black"
+    {% endblock %}
+
+{% block content %}
+
+    <br><br>
+
+    <div class ="container" style="background-color: #e6e6e6 ; padding-top: 30px ; padding-bottom: 30px; margin-top: 0px ; padding-left: 40px">
+
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+      <p>
+          <span style="margin-right: 30px ; font-size: 20px ; ">{{ field.label_tag }}</span>
+          <span style="margin-left: 30px">{{ field }}</span>
+      <br>
+        <br>
+      </p>
+
+    {% endfor %}
+    <center>
+    <input type="submit" class="btn btn-lg btn-danger btn-block" value="Post Now">
+    </center>
+  </form>
+
+    </div>
+
+{% endblock %}
+

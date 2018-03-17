@@ -1,0 +1,56 @@
+
+    {% extends 'blog_app/base.html' %}
+
+    {% block bg %}
+        style="background-color: white"
+    {% endblock %}
+
+    {% block content %}
+
+        <div style="margin-top: 0px ; background-color: black ; color: black">
+        <br>
+        <br>
+
+        <div class = "container">
+        <a href = "{% url 'post_detail' post.id %}" style="color: red"><p style="font-size: 90px ; font-family: 'Great Vibes'">{{ post.title }}
+
+            <a href="{% url 'update_post' post.id %}"><span style="color: white ; margin-left: 30px; font-size: 20px" class="glyphicon glyphicon-pencil"> Edit</span></a>
+            <a href="{% url 'delete_post' post.id %}"><span style="color: white ; margin-left: 30px; font-size: 20px" class = "glyphicon glyphicon-remove"> Remove</span></a>
+
+        </p></a>
+        <br>
+        <h5 style="color: white ; margin-top: 0px ; ">Published On : {{ post.publish_date}}</h5><br>
+
+        <span style="font-size: 17px ; margin-right: 20px ; color: white"> Share on : </span>
+            <span style="margin-right: 20px">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+                <i class="fa fa-facebook fa-2x" style="color: white;"></i></a></span>
+
+            <span style="margin-right: 20px"><a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">
+            <i class="fa fa-twitter fa-2x" aria-hidden="true" style="color: white"> </i>
+            </a></span>
+
+            <span style="margin-right:20px">
+            <a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}&title={{ share_string }}.">
+                <i class="fa fa-reddit fa-2x" aria-hidden="true" style="color: white">  </i>
+            </a>
+            </span>
+        <br>
+            <br>
+<br><br>
+        </div>
+        </div>
+        <br>
+        <br>
+
+
+        <hr style="margin-bottom: 10px">
+        <div class = "container">
+        <p style="color: black; font-size: 22px ; letter-spacing: 1.2px ; font-family: 'Alegreya'">{{ post.text }}</p>
+        <br>
+        <p align="right" style="font-family: 'Alegreya' ; font-size: 22px ; color: black"> Written by : {{ post.author }}</p>
+        <br>
+        </div>
+
+
+    {% endblock %}

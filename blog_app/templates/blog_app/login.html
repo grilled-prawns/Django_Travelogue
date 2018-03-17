@@ -1,0 +1,37 @@
+{% extends 'blog_app/base.html' %}
+
+    {% block bg %}
+        style="background-color: black"
+    {% endblock %}
+
+{% block content %}
+    <center>
+
+    <div class = "row" style="width: 100% ; height: 350px; padding-bottom: 20px; margin-bottom: 10px ; margin-top: 0px ; background-color: white">
+        <center>
+        <div class = "col-xs-3"><img src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-circle" height="300px" style="margin-top: 20px"></div>
+        <div class = "col-xs-3"><img src="https://www.w3schools.com/bootstrap/img_avatar6.png" class="img-circle" height="300px" style="margin-top: 20px"></div>
+        <div class = "col-xs-3"><img src="http://www.tkbm.se/wp-content/uploads/2015/09/man_green2.jpg" class="img-circle" height="300px" style="margin-top: 20px"></div>
+        <div class = "col-xs-3"><img src="https://www.w3schools.com/bootstrap/img_avatar1.png" class="img-circle" height="300px" style="margin-top: 20px"></div>
+        </center>
+    </div>
+    <div style="background-color: black ; height: 370px ; padding-top: 30px">
+    <h1 style="font-family: 'Open Sans Condensed' ; color: lavender">Login</h1>
+    <br><br>
+  <form method="post">
+    {% csrf_token %}
+      {% for field in form %}
+      <p>
+          <span style="margin-right: 30px ; font-size: 20pxc; color: lavender">{{ field.label_tag }}</span>
+          <span style="margin-left: 30px" >{{ field }}</span>
+
+      </p>
+        <br>
+    {% endfor %}
+<br><br>
+      <input type="submit" class="btn btn-lg btn-primary" value="Submit Credentials">
+
+  </form>
+    </div>
+    </center>
+{% endblock %}
